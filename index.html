@@ -96,6 +96,21 @@ h2{font-size:clamp(32px,5.5vw,56px);line-height:1.07;letter-spacing:-.03em;font-
 .btns .pill{background:var(--bg);color:var(--ink);border:1px solid var(--line)}
 .btns .pill:hover{background:var(--blue);color:#fff;border-color:var(--blue);opacity:1;transform:translateY(-2px)}
 footer{padding:24px 0 36px;font-size:12px;color:var(--mute);text-align:center}
+.tabs{display:flex;gap:8px;margin:0 0 36px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;border:0;background:var(--tile);color:var(--ink);font-family:inherit;font-size:15px;font-weight:600;padding:10px 20px;border-radius:980px;cursor:pointer;transition:background .25s,color .25s}
+.tabs button:hover{background:var(--line)}.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.gp{display:none}.gp.show{display:block;animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
+.gh{font-size:22px;letter-spacing:-.015em;margin:0 0 16px}.gp .gh:not(:first-child){margin-top:44px}
+.gphotos{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.gvids{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gi{display:block;position:relative;border-radius:20px;overflow:hidden;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.gi .ph{aspect-ratio:4/5;border-radius:0;min-height:0}.gi.vid .ph{aspect-ratio:16/9}
+.gi::after{content:"\2197";position:absolute;right:12px;bottom:12px;width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:17px;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}
+.gi:hover::after,.gi:focus-visible::after{opacity:1;transform:none}
+@media (hover:hover){.gi:hover{transform:scale(1.03)}}
+.play{position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);display:grid;place-items:center}.play svg{width:24px;height:24px;margin-left:3px}
+@media (max-width:860px){.gphotos{grid-template-columns:repeat(2,1fr)}.gvids{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.gvids{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.gp.show{animation:none}.gi,.gi::after{transition:none}}
 /* animasi */
 #heroInner{will-change:transform,opacity}
 .words .w{opacity:.3;transition:opacity .4s,color .4s}.words .w.on{opacity:1;color:var(--ink)}
@@ -121,7 +136,7 @@ footer{padding:24px 0 36px;font-size:12px;color:var(--mute);text-align:center}
 <body>
 <nav aria-label="Navigasi utama"><div class="wrap">
  <b>Dimas Pamadyo Utomo</b>
- <ul><li><a href="#skill" data-en="Skills">Skill</a></li><li><a href="#karier" data-en="Career">Karier</a></li><li><a href="#pendidikan" data-en="Education">Pendidikan</a></li><li><a href="#pencapaian" data-en="Achievements">Pencapaian</a></li><li><a href="#kontak" data-en="Contact">Kontak</a></li></ul>
+ <ul><li><a href="#skill" data-en="Skills">Skill</a></li><li><a href="#karier" data-en="Career">Karier</a></li><li><a href="#pendidikan" data-en="Education">Pendidikan</a></li><li><a href="#pencapaian" data-en="Achievements">Pencapaian</a></li><li><a href="#galeri" data-en="Gallery">Galeri</a></li><li><a href="#kontak" data-en="Contact">Kontak</a></li></ul>
  <div class="rt"><div class="lang" role="group" aria-label="Language"><button data-l="id" aria-pressed="true">ID</button><button data-l="en" aria-pressed="false">EN</button></div><a class="pill sm" href="#kontak" data-en="Contact">Hubungi</a></div>
 </div></nav>
 
@@ -178,6 +193,31 @@ footer{padding:24px 0 36px;font-size:12px;color:var(--mute);text-align:center}
  </div>
 </div></section>
 
+<section id="galeri"><div class="wrap">
+ <h2 class="nl" data-en="Content gallery.">Galeri konten.</h2>
+ <div class="tabs" role="tablist"><button role="tab" data-g="mflash" aria-selected="true">Mflash</button><button role="tab" data-g="omsetku" aria-selected="false">Omsetku</button><button role="tab" data-g="smartsafety" aria-selected="false">SmartSafety</button><button role="tab" data-g="evamedia" aria-selected="false">Evamedia</button><button role="tab" data-g="goodeva" aria-selected="false">Goodeva</button></div>
+ <div class="gp show" id="g-mflash" role="tabpanel">
+  <h3 class="gh" data-en="Photos">Foto</h3><div class="gphotos"><a class="gi" href="https://instagram.com/username" target="_blank" rel="noopener" aria-label="Foto Mflash 1"><div class="ph" data-l="Foto Mflash 1"></div></a><a class="gi" href="https://instagram.com/username" target="_blank" rel="noopener" aria-label="Foto Mflash 2"><div class="ph" data-l="Foto Mflash 2"></div></a><a class="gi" href="https://instagram.com/username" target="_blank" rel="noopener" aria-label="Foto Mflash 3"><div class="ph" data-l="Foto Mflash 3"></div></a><a class="gi" href="https://instagram.com/username" target="_blank" rel="noopener" aria-label="Foto Mflash 4"><div class="ph" data-l="Foto Mflash 4"></div></a></div>
+  <h3 class="gh" data-en="Videos">Video</h3><div class="gvids"><a class="gi vid" href="https://tiktok.com/@username" target="_blank" rel="noopener" aria-label="Video Mflash 1"><div class="ph" data-l="Video Mflash 1"></div><span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a><a class="gi vid" href="https://tiktok.com/@username" target="_blank" rel="noopener" aria-label="Video Mflash 2"><div class="ph" data-l="Video Mflash 2"></div><span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a><a class="gi vid" href="https://tiktok.com/@username" target="_blank" rel="noopener" aria-label="Video Mflash 3"><div class="ph" data-l="Video Mflash 3"></div><span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a></div>
+ </div>
+ <div class="gp" id="g-omsetku" role="tabpanel">
+  <h3 class="gh" data-en="Photos">Foto</h3><div class="gphotos"><a class="gi" href="https://instagram.com/username" target="_blank" rel="noopener" aria-label="Foto Omsetku 1"><div class="ph" data-l="Foto Omsetku 1"></div></a><a class="gi" href="https://instagram.com/username" target="_blank" rel="noopener" aria-label="Foto Omsetku 2"><div class="ph" data-l="Foto Omsetku 2"></div></a><a class="gi" href="https://instagram.com/username" target="_blank" rel="noopener" aria-label="Foto Omsetku 3"><div class="ph" data-l="Foto Omsetku 3"></div></a><a class="gi" href="https://instagram.com/username" target="_blank" rel="noopener" aria-label="Foto Omsetku 4"><div class="ph" data-l="Foto Omsetku 4"></div></a></div>
+  <h3 class="gh" data-en="Videos">Video</h3><div class="gvids"><a class="gi vid" href="https://tiktok.com/@username" target="_blank" rel="noopener" aria-label="Video Omsetku 1"><div class="ph" data-l="Video Omsetku 1"></div><span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a><a class="gi vid" href="https://tiktok.com/@username" target="_blank" rel="noopener" aria-label="Video Omsetku 2"><div class="ph" data-l="Video Omsetku 2"></div><span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a><a class="gi vid" href="https://tiktok.com/@username" target="_blank" rel="noopener" aria-label="Video Omsetku 3"><div class="ph" data-l="Video Omsetku 3"></div><span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a></div>
+ </div>
+ <div class="gp" id="g-smartsafety" role="tabpanel">
+  <h3 class="gh" data-en="Photos">Foto</h3><div class="gphotos"><a class="gi" href="https://instagram.com/username" target="_blank" rel="noopener" aria-label="Foto SmartSafety 1"><div class="ph" data-l="Foto SmartSafety 1"></div></a><a class="gi" href="https://instagram.com/username" target="_blank" rel="noopener" aria-label="Foto SmartSafety 2"><div class="ph" data-l="Foto SmartSafety 2"></div></a><a class="gi" href="https://instagram.com/username" target="_blank" rel="noopener" aria-label="Foto SmartSafety 3"><div class="ph" data-l="Foto SmartSafety 3"></div></a><a class="gi" href="https://instagram.com/username" target="_blank" rel="noopener" aria-label="Foto SmartSafety 4"><div class="ph" data-l="Foto SmartSafety 4"></div></a></div>
+  <h3 class="gh" data-en="Videos">Video</h3><div class="gvids"><a class="gi vid" href="https://tiktok.com/@username" target="_blank" rel="noopener" aria-label="Video SmartSafety 1"><div class="ph" data-l="Video SmartSafety 1"></div><span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a><a class="gi vid" href="https://tiktok.com/@username" target="_blank" rel="noopener" aria-label="Video SmartSafety 2"><div class="ph" data-l="Video SmartSafety 2"></div><span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a><a class="gi vid" href="https://tiktok.com/@username" target="_blank" rel="noopener" aria-label="Video SmartSafety 3"><div class="ph" data-l="Video SmartSafety 3"></div><span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a></div>
+ </div>
+ <div class="gp" id="g-evamedia" role="tabpanel">
+  <h3 class="gh" data-en="Photos">Foto</h3><div class="gphotos"><a class="gi" href="https://instagram.com/username" target="_blank" rel="noopener" aria-label="Foto Evamedia 1"><div class="ph" data-l="Foto Evamedia 1"></div></a><a class="gi" href="https://instagram.com/username" target="_blank" rel="noopener" aria-label="Foto Evamedia 2"><div class="ph" data-l="Foto Evamedia 2"></div></a><a class="gi" href="https://instagram.com/username" target="_blank" rel="noopener" aria-label="Foto Evamedia 3"><div class="ph" data-l="Foto Evamedia 3"></div></a><a class="gi" href="https://instagram.com/username" target="_blank" rel="noopener" aria-label="Foto Evamedia 4"><div class="ph" data-l="Foto Evamedia 4"></div></a></div>
+  <h3 class="gh" data-en="Videos">Video</h3><div class="gvids"><a class="gi vid" href="https://tiktok.com/@username" target="_blank" rel="noopener" aria-label="Video Evamedia 1"><div class="ph" data-l="Video Evamedia 1"></div><span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a><a class="gi vid" href="https://tiktok.com/@username" target="_blank" rel="noopener" aria-label="Video Evamedia 2"><div class="ph" data-l="Video Evamedia 2"></div><span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a><a class="gi vid" href="https://tiktok.com/@username" target="_blank" rel="noopener" aria-label="Video Evamedia 3"><div class="ph" data-l="Video Evamedia 3"></div><span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a></div>
+ </div>
+ <div class="gp" id="g-goodeva" role="tabpanel">
+  <h3 class="gh" data-en="Photos">Foto</h3><div class="gphotos"><a class="gi" href="https://instagram.com/username" target="_blank" rel="noopener" aria-label="Foto Goodeva 1"><div class="ph" data-l="Foto Goodeva 1"></div></a><a class="gi" href="https://instagram.com/username" target="_blank" rel="noopener" aria-label="Foto Goodeva 2"><div class="ph" data-l="Foto Goodeva 2"></div></a><a class="gi" href="https://instagram.com/username" target="_blank" rel="noopener" aria-label="Foto Goodeva 3"><div class="ph" data-l="Foto Goodeva 3"></div></a><a class="gi" href="https://instagram.com/username" target="_blank" rel="noopener" aria-label="Foto Goodeva 4"><div class="ph" data-l="Foto Goodeva 4"></div></a></div>
+  <h3 class="gh" data-en="Videos">Video</h3><div class="gvids"><a class="gi vid" href="https://tiktok.com/@username" target="_blank" rel="noopener" aria-label="Video Goodeva 1"><div class="ph" data-l="Video Goodeva 1"></div><span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a><a class="gi vid" href="https://tiktok.com/@username" target="_blank" rel="noopener" aria-label="Video Goodeva 2"><div class="ph" data-l="Video Goodeva 2"></div><span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a><a class="gi vid" href="https://tiktok.com/@username" target="_blank" rel="noopener" aria-label="Video Goodeva 3"><div class="ph" data-l="Video Goodeva 3"></div><span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></a></div>
+ </div>
+</div></section>
+
 <section id="kontak" class="contact"><div class="wrap">
  <div class="ph rv" data-l="Foto" data-p="1"></div>
  <h2 class="rv">Dimas Pamadyo Utomo</h2>
@@ -214,6 +254,8 @@ function tick(){var vh=innerHeight,y=scrollY;nav.classList.toggle('scrolled',y>8
 if(!rm){var t=Math.min(1,y/(vh*.8));hero.style.transform='translateY('+(y*.18)+'px) scale('+(1-.06*t)+')';hero.style.opacity=Math.max(0,1-t*1.1)}
 lists.forEach(function(L){var r=L.p.getBoundingClientRect(),k=rm?1:Math.max(0,Math.min(1,(vh*.88-r.top)/(vh*.42))),n=Math.round(k*L.w.length);L.w.forEach(function(s,i){s.classList.toggle('on',i<n)})});
 secs.forEach(function(s,i){var r=s.getBoundingClientRect();links[i].classList.toggle('act',r.top<=vh*.4&&r.bottom>vh*.4)})}
+var tb=[].slice.call(document.querySelectorAll('.tabs button'));
+tb.forEach(function(b){b.addEventListener('click',function(){tb.forEach(function(x){x.setAttribute('aria-selected',x===b)});[].forEach.call(document.querySelectorAll('.gp'),function(p){p.classList.toggle('show',p.id==='g-'+b.dataset.g)})})});
 function setLang(l){LOC=l=='en'?'en-US':'id-ID';document.documentElement.lang=l;
 [].forEach.call(document.querySelectorAll('[data-en]'),function(el){el.innerHTML=l=='en'?el.dataset.en:el.dataset.id});
 [].forEach.call(document.querySelectorAll('.num'),function(n){n.dataset.suf=(l=='en'&&n.dataset.sufEn!==undefined)?n.dataset.sufEn:n.dataset.sufId;if(n.dataset.done)n.textContent=(n.dataset.pre||'')+(+n.dataset.n).toLocaleString(LOC)+n.dataset.suf});
